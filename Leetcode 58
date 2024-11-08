@@ -1,0 +1,42 @@
+Given a string s consisting of words and spaces, return the length of the last word in the string.
+
+A word is a maximal 
+substring
+ consisting of non-space characters only.
+
+ 
+
+Example 1:
+
+Input: s = "Hello World"
+Output: 5
+Explanation: The last word is "World" with length 5.
+-----------------------------------------------------------------------------------------------------------------
+import java.util.ArrayList;
+
+class Solution {
+    public int lengthOfLastWord(String s) {
+        // Create an ArrayList to store strings
+        ArrayList<String> list = new ArrayList<>(); 
+        
+        // Add the input string to the ArrayList
+        list.add(s);
+        
+        int len = 0;
+        if (!list.isEmpty()) {
+            // Get the last element of the ArrayList, which is the original string
+            String lastElement = list.get(list.size() - 1);
+            
+            // Split the string into words using spaces
+            String[] words = lastElement.trim().split("\\s+");
+            
+            // Check if there are any words in the string
+            if (words.length > 0) {
+                // Get the last word and calculate its length
+                len = words[words.length - 1].length();
+            }
+        }
+        return len;
+    }
+}
+
