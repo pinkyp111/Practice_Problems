@@ -1,0 +1,25 @@
+// Java program to find duplicate characters in a string
+
+import java.util.HashMap;
+
+public class Duplicate {
+    public static void main(String args[]) {
+        String st = "abbddd";
+        HashMap<Character, Integer> hp = new HashMap<>();
+        int len = st.length();
+        
+        // Count occurrences of each character
+        for (int i = 0; i < len; i++) {
+            char ch = st.charAt(i);
+            hp.put(ch, hp.getOrDefault(ch, 0) + 1);
+        }
+
+        // Print characters that appear more than once
+        System.out.println("The duplicate characters in the string are:");
+        for (HashMap.Entry<Character, Integer> entry : hp.entrySet()) {
+            if (entry.getValue() > 1) {
+                System.out.println(entry.getKey());
+            }
+        }
+    }
+}
